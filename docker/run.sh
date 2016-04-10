@@ -13,6 +13,7 @@ export GRAPHITE_PREFIX=${GRAPHITE_PREFIX:-collectd.}
 export COLLECTD_INTERVAL=${COLLECTD_INTERVAL:-10}
 
 # Adding a user if needed to be able to communicate with docker
+groupadd nobody
 GROUP=nobody
 if [ -e /var/run/docker.sock ]; then
   GROUP=$(ls -l /var/run/docker.sock | awk '{ print $4 }')
